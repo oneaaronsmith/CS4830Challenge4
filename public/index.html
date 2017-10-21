@@ -48,8 +48,8 @@
                         <td>{{student.gpa}}</td>
                         <td>{{student.plan}}</td>
                         <td>{{student.level}}</td>
-                        <td>{{student.active}}</td>
-                        <td><button class="pure-button" ng-click="studentList.students.splice($index,1)">Remove</button></td>
+                        <td><button class="pure-button" ng-click="studentList.toggleActive(this)">{{student.active}}</button></td>
+                        <td><button class="pure-button" ng-click="studentList.students.splice($index,1); studentList.archiveStudents()">Remove</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -94,9 +94,11 @@
 
                     <div class="pure-controls">
                         <button class="pure-button" type="submit" ng-click="studentList.addStudent()">Submit</button>
+                        <span ng-if="studentList.showError">{{studentList.errorMsg}}</span>
                     </div>
                 </fieldset>
             </div>
+
             
         </div>
         <div>
