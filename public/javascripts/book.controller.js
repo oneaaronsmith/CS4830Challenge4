@@ -75,6 +75,8 @@
                 vm.errorMsg = "Error: ISBN number cannot contain letters"
             }
 
+            /* Note : I did not test bookname for numbers since some books use them like Orwell's "1984" */
+            
             if (/[0-9]/.test(vm.authorText)) {
                 vm.valid = false;
                 vm.errorMsg = "Error: Author name cannot contain a number"
@@ -117,8 +119,8 @@
 
         function loadBooks() {
             vm.books = (localStorage.getItem('books') !== null) ? JSON.parse(localStorage.getItem('books')) : [];
-            vm.activebooks = getNumInStock();
-            vm.inactivebooks = getNumOutOfStock();
+            vm.inStock = getNumInStock();
+            vm.outOfStock = getNumOutOfStock();
         }
 
         function toggleStock(list) {
