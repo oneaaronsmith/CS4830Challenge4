@@ -15,7 +15,7 @@
                 <th>GPA</th>
                 <th>Plan</th>
                 <th>Level</th>
-                <th>Active</th>
+                <th>Active (Toggleable)</th>
                 <th></th>
             </tr>
         </thead>
@@ -29,7 +29,7 @@
                 <td>{{student.gpa}}</td>
                 <td>{{student.plan}}</td>
                 <td>{{student.level}}</td>
-                <td><button class="pure-button" ng-click="studentList.toggleActive(this)">{{student.active}}</button></td>
+                <td><button class="pure-button" ng-click="studentList.toggleActive(this)">{{student.active === true ? 'active' : 'inactive'}}</button></td>
                 <td><button class="pure-button" ng-click="studentList.students.splice($index,1); studentList.archiveStudents()">Remove</button></td>
             </tr>
         </tbody>

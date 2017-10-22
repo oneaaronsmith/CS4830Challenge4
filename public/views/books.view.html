@@ -15,7 +15,7 @@
                 <th>Year</th>
                 <th>Type</th>
                 <th>Edition</th>
-                <th>In Stock</th>
+                <th>In Stock (Toggleable)</th>
                 <th></th>
             </tr>
         </thead>
@@ -29,7 +29,7 @@
                 <td>{{book.year}}</td>
                 <td>{{book.type}}</td>
                 <td>{{book.edition}}</td>
-                <td><button class="pure-button" ng-click="bookList.toggleStock(this)">{{book.stocked}}</button></td>
+                <td><button class="pure-button" ng-click="bookList.toggleStock(this)">{{book.stocked === true ? 'In Stock' : 'Out of Stock'}}</button></td>
                 <td><button class="pure-button" ng-click="bookList.books.splice($index,1); bookList.archiveBooks()">Remove</button></td>
             </tr>
         </tbody>
