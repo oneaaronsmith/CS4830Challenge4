@@ -8,7 +8,6 @@ var bodyParser = require('body-parser');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
@@ -25,6 +24,8 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
+app.use('/modules', express.static(path.join(__dirname, '/node_modules/angular/')));
 
 // error handler
 app.use(function(err, req, res, next) {
